@@ -1,0 +1,137 @@
+day13回顾
+	sys模块
+	sys.path
+	sys.version
+	sys.modules
+	sys.argv
+	sys.exit() 退出程序
+	自定义模块
+		xxxx.py
+		全局变量--->属性
+	预置属性：
+		__doc__属性(当前模块的文档字符串)
+		__file__属性(绑定路径)
+		__name__属性(用来绑定模块名，区分主模块和非主模块)
+	from import *语句导入
+	__all__=['aaa','bbb']
+	_xxxx=1000 #隐藏属性
+
+	随机模块
+	random
+
+	包
+
+	__init__.py
+	__all__列表一定要在__init__.py
+
+	包的导入
+		绝对导入：
+			from mypack.gemaes.comtra inport *
+		相对导入：
+			from .menu impoer show_menu
+			form ..xxxx import yyyy
+
+
+	搜索路径：
+		当前路径
+		sys.path指定的路径
+
+day14笔记
+
+异常 exception
+	什么是错误
+		错误是由于逻辑或语法等导致一个程序无法正常执行的问题
+	什么是异常
+		异常是程序出错时标识的一种状态
+		当异常发生时，程序不会在向下执行，而转为调用此函数的地方待处理此错误并回复为正常状态
+	作用：
+		用作信号，通知上层调用者有错误产生需要处理 
+
+try 语句的两种用法
+	try-except语句
+	try-finally语句
+
+try-except语法
+	try:
+		可能触发异常的语法
+	except 类型1[as 变量1]：
+		异常处理语句1
+	except 类型2[as 变量2]：
+		异常处理语句2
+	except (错误类型3，错误类型4)
+		异常处理语句3
+	...
+	except:
+		异常处理语句other
+	else:
+		未发生异常语句
+	finally:
+		最终语句
+	作用：
+		尝试捕捉异常(接受通知异常)，将程序转为正常状态并继续执行
+
+	语法说明：
+		as 子句是用于绑定错误对象的变量，可以省略
+		except 子句可以有一个或多个，但至少有一个
+		else 子句最多只能有一个，也可以省略不写
+		finally 子句最多只能有一个，也可以省略不写
+	示例见：
+		try_except.py
+
+try-finally语句
+	语法：
+		try:
+			可能触发异常的语句
+		finally:
+			最终语句
+	说明：
+		finally子句不可省略
+		一定存在except子句
+	作用：
+		通常用gtry-finally语句来做触发异常时必须要处理的事情
+		是否发生，finally子句都会被执行
+		try-finally 语句不会改变程序的(正常/异常状态)
+
+raise语句：
+	作用：
+		触发一个错误，让程序进入异常状态
+		发送错误报告给调用者
+	语法：
+		raise 异常类型
+		或
+		raise 异常对象
+		或
+		raise # 重新触发上一次异常
+	示例见：
+		raise.py
+
+assert 语句(断言语句)
+	语法：
+		assert 真值表达式，错误数据(通常字符串)
+	作用:
+		当真值表达式为False时，用错误数据创建一个AssertionError类型的错误raise出去，并进去异常状态	
+	等同于：
+		if 真值表达式 == False：
+			raise AssertionError(错误数据)
+
+	示例见：
+		assert.py
+
+为什么要用异常处理机制
+	在程序调用层数较少时，向主掉函数传递错误信息需要层层return
+	返回比较麻烦，所以要用异常处理机制
+
+	示例见：
+		exception.py
+    
+
+
+
+
+
+
+
+
+
+
+
